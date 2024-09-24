@@ -1,0 +1,63 @@
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
+  },
+  extends: [
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+  ],
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    ecmaFeatures: { jsx: true },
+    ecmaVersion: 13,
+    sourceType: "module",
+    tsconfigRootDir: __dirname,
+    project: ["./tsconfig.app.json", "./tsconfig.node.json"],
+  },
+  plugins: ["react-refresh", "@typescript-eslint"],
+  ignorePatterns: [".eslintrc.*", "vite.config.*"],
+  rules: {
+    "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
+    "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
+    "symbol-description": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/interactive-supports-focus": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "react/function-component-definition": "off",
+    "react/no-unescaped-entities": "off",
+    "padding-line-between-statements": ["error", {
+      blankLine: "always",
+      prev: "*",
+      next: [
+        "if",
+        "for",
+        "return",
+        "block-like",
+        "multiline-const",
+        "multiline-expression",
+        "export",
+      ],
+    }, {
+      blankLine: "never",
+      prev: ["singleline-const", "singleline-let", "singleline-var"],
+      next: ["singleline-const", "singleline-let", "singleline-var"],
+    }, {
+      blankLine: "always",
+      prev: [
+        "multiline-const",
+        "multiline-let",
+        "multiline-var",
+        "multiline-expression",
+      ],
+      next: "*",
+    }],
+  },
+};
