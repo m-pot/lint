@@ -39,6 +39,7 @@ module.exports = {
     "react/button-has-type": "off",
     "react/function-component-definition": "off",
     "react/no-unescaped-entities": "off",
+    "react/require-default-props": "off",
     "padding-line-between-statements": ["error", {
       blankLine: "always",
       prev: "*",
@@ -52,18 +53,18 @@ module.exports = {
         "export",
       ],
     }, {
-      blankLine: "never",
-      prev: ["singleline-const", "singleline-let", "singleline-var"],
-      next: ["singleline-const", "singleline-let", "singleline-var"],
-    }, {
-      blankLine: "always",
-      prev: [
-        "multiline-const",
-        "multiline-let",
-        "multiline-var",
-        "multiline-expression",
-      ],
-      next: "*",
-    }],
+        blankLine: "never",
+        prev: ["singleline-const", "singleline-let", "singleline-var"],
+        next: ["singleline-const", "singleline-let", "singleline-var"],
+      }, {
+        blankLine: "always",
+        prev: [
+          "multiline-const",
+          "multiline-let",
+          "multiline-var",
+          "multiline-expression",
+        ],
+        next: "*",
+      }],
   },
 };

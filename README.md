@@ -58,6 +58,14 @@ const a11yOff = Object.keys(require("eslint-plugin-jsx-a11y").rules).reduce(
   {},
 );
 
+const a11yOff = Object.keys(require("eslint-plugin-jsx-a11y").rules).reduce(
+  (acc, rule) => {
+    acc[`jsx-a11y/${rule}`] = "off";
+    return acc;
+  },
+  {},
+);
+
 module.exports = {
   env: {
     browser: true,
@@ -91,6 +99,7 @@ module.exports = {
     "react/button-has-type": "off",
     "react/function-component-definition": "off",
     "react/no-unescaped-entities": "off",
+    "react/require-default-props": "off",
     "padding-line-between-statements": ["error", {
       blankLine: "always",
       prev: "*",
