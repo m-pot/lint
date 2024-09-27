@@ -50,6 +50,14 @@ pnpm add eslint@^8.57.0 eslint-config-airbnb@^19.0.4 eslint-config-airbnb-typesc
 ## Use the provided .eslintrc.cjs config file.
 
 ```javascript
+const a11yOff = Object.keys(require("eslint-plugin-jsx-a11y").rules).reduce(
+  (acc, rule) => {
+    acc[`jsx-a11y/${rule}`] = "off";
+    return acc;
+  },
+  {},
+);
+
 module.exports = {
   env: {
     browser: true,
@@ -69,20 +77,18 @@ module.exports = {
     ecmaVersion: 13,
     sourceType: "module",
     tsconfigRootDir: __dirname,
-    project: ["./tsconfig.app.json", "./tsconfig.node.json"],
+    project: ["./tsconfig.json"],
   },
   plugins: ["react-refresh", "@typescript-eslint"],
   ignorePatterns: [".eslintrc.*", "vite.config.*"],
   rules: {
+    ...a11yOff,
     "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
     "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
     "symbol-description": "off",
-    "jsx-a11y/click-events-have-key-events": "off",
-    "jsx-a11y/no-noninteractive-element-interactions": "off",
-    "jsx-a11y/interactive-supports-focus": "off",
-    "jsx-a11y/no-static-element-interactions": "off",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
+    "react/button-has-type": "off",
     "react/function-component-definition": "off",
     "react/no-unescaped-entities": "off",
     "padding-line-between-statements": ["error", {
