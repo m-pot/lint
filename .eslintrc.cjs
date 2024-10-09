@@ -40,6 +40,9 @@ module.exports = {
     "react/function-component-definition": "off",
     "react/no-unescaped-entities": "off",
     "react/require-default-props": "off",
+    "consistent-return": "off",
+    "guard-for-in": "off",
+    "no-restricted-syntax": "off",
     "padding-line-between-statements": ["error", {
       blankLine: "always",
       prev: "*",
